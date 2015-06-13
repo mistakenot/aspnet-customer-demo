@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Customer App";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -9,7 +9,7 @@
     <div ng-app="CustomerListApp" ng-controller="CustomerListAppController" ng-init="Get()">
         <div class="col-md-4">
             <h3 id="formLabel">{{ FormMode }} Customer</h3>
-            <form role="form" ng-submit="Submit()">
+            <form role="form" ng-submit="Submit()" id="form">
                 <div class="form-group">
                     <label for="FirstName">First Name:</label>
                     <input type="text" class="form-control" ng-model="Form.FirstName">
@@ -27,6 +27,8 @@
                     <input type="datetime" class="form-control" ng-model="Form.DateOfBirth">
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
+                <button type="reset" class="btn btn-default" ng-click="FormReset()">Cancel</button>
+                <font color="{{ MessageColour }}">{{ Message }}</font>
             </form>
         </div>
         <div class="col-md-8">
@@ -54,19 +56,6 @@
     <script src="@Url.Content("~/Scripts/CustomerListApp.js")"></script>
     <script>
         Initilise("@Url.Action("Index", "Customers")");
-    </script>
-    <script>
-        $("#form").submit(function (event) {
-            // TODO Add client side validation
-            var data = {
-                FirstName: $('input[name=FirstName]').val(),
-                Surname: $('input[name=Surname]').val(),
-                Telephone: $('input[name=Telephone]').val(),
-                DateOfBirth: $('input[name=DateOfBirth]').val()
-            };
-
-
-        });
     </script>
 }
 
