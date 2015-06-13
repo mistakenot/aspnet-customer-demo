@@ -22,7 +22,7 @@ namespace CustomerSite.Server
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             CustomerDataContext.ConnectionString = WebConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
-            //ClearDatabase();
+            ClearDatabase();
         }
 
         /// <summary>

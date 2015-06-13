@@ -34,7 +34,14 @@ namespace CustomerSite.Server.Controllers
         public async Task Put([FromBody]string value)
         {
             var model = Deserialise<Customer>(value);
-            await customers.CreateOne(model);
+            try
+            {
+                await customers.CreateOne(model);
+            }
+            catch (Exception e)
+            {
+
+            }
         }
         #endregion
 

@@ -26,24 +26,18 @@
             $scope.Form = {};
             $scope.FormMode = "Create";
             $scope.Get();
+            $scope.Message = "";
         }
 
         $scope.OnFormSuccess = function () {
             $scope.FormReset();
             $scope.Message = "Successful";
-            setTimeout(function () {
-                $scope.Message = "";
-            }, 2000);
-
         }
 
         $scope.OnFormError = function () {
             $scope.Message = "Error";
             $scope.MessageColour = "red";
-            setTimeout(function () {
-                $scope.Message = "";
-            }, 2000);
-            alert("error");
+            alert("An error has occurred. Please check your inputs and try again.");
         }
 
         $scope.Submit = function () {
@@ -67,6 +61,7 @@
         $scope.SetupForEdit = function (customer) {
             $scope.Form = customer;
             $scope.FormMode = "Update";
+            $scope.Message = "";
         }
     });
 };
