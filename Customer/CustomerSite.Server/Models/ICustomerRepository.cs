@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace CustomerSite.Server.Models
 {
     /// <summary>
-    /// Persistant store of customer data and related operations.
+    /// Persistant store of customer data.
     /// </summary>
     public interface ICustomerRepository
     {
@@ -15,14 +15,14 @@ namespace CustomerSite.Server.Models
         /// Asynchronously retrieves all customers from the database.
         /// </summary>
         /// <returns>List of customers</returns>
-        Task<IEnumerable<Customer>> GetAll();
+        Task<IEnumerable<Customer>> GetAllAsync();
 
         /// <summary>
         /// Asynchronously updates customer information 
         /// </summary>
         /// <param name="model"></param>
         /// <returns>Updated customer</returns>
-        Task<Customer> UpdateOne(Customer model);
+        Task<Customer> UpdateOneAsync(Customer model);
 
         /// <summary>
         /// Asynchronously creates a new customer

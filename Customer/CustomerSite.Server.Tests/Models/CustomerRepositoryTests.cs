@@ -39,7 +39,7 @@ namespace CustomerSite.Server.Tests.Models
 
             created.FirstName = "Douglas";
 
-            var updated = await repo.UpdateOne(created);
+            var updated = await repo.UpdateOneAsync(created);
 
             Assert.AreEqual(updated.DisplayName, created.DisplayName);
             Assert.AreEqual(updated.DateOfBirth, created.DateOfBirth);

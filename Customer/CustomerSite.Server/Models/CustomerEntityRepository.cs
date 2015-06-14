@@ -9,7 +9,7 @@ namespace CustomerSite.Server.Models
 {
     public class CustomerEntityRepository : ICustomerRepository
     {
-        public async Task<IEnumerable<Customer>> GetAll()
+        public async Task<IEnumerable<Customer>> GetAllAsync()
         {
             using (var db = new CustomerDataContext())
             {
@@ -17,7 +17,7 @@ namespace CustomerSite.Server.Models
             }
         }
 
-        public async Task<Customer> UpdateOne(Customer model)
+        public async Task<Customer> UpdateOneAsync(Customer model)
         {
             using (var db = new CustomerDataContext())
             {

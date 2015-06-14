@@ -17,6 +17,12 @@ namespace CustomerSite.Server
             bundles.Add(new ScriptBundle("~/bundles/angularjs").Include(
                         "~/Scripts/angular.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/momentjs").Include(
+                        "~/Scripts/moment.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/customerapp").Include(
+                        "~/Scripts/CustomerListApp.js"));
+
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(

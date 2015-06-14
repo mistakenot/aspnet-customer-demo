@@ -10,7 +10,7 @@ using System.Web.Http;
 
 namespace CustomerSite.Server.Controllers
 {
-    public class CustomersController : ApiController
+    public class CustomersController : ApiController, ICustomersController
     {
         private ICustomerRepository customers;
 
@@ -22,26 +22,19 @@ namespace CustomerSite.Server.Controllers
         #region PUBLIC API
         public async Task<IEnumerable<Customer>> Get()
         {
-            return await customers.GetAll();
+            return await customers.GetAllAsync();
         }
 
         public async Task Post([FromBody]string value)
         {
             var model = Deserialise<Customer>(value);
-            await customers.UpdateOne(model);
+            await customers.UpdateOneAsync(model);
         }
 
         public async Task Put([FromBody]string value)
         {
             var model = Deserialise<Customer>(value);
-            try
-            {
-                await customers.CreateOne(model);
-            }
-            catch (Exception e)
-            {
-
-            }
+            await customers.CreateOne(model);
         }
         #endregion
 

@@ -85,34 +85,15 @@ namespace CustomerSite.Server.Models
             }
         }
         /// <summary>
-        /// The display name, created from the FirstName + Surname.
-        /// </summary>
-        public string DisplayName
-        {
-            get
-            {
-                return string.Format("{0} {1}", FirstName, Surname);
-            }
-        }
-        /// <summary>
-        /// Age of the customer. This is in UTC.
-        /// </summary>
-        public TimeSpan Age
-        {
-            get
-            {
-                return DateTime.UtcNow - DateOfBirth;
-            }
-        }
-        /// <summary>
-        /// Generates a unique html (3 byte) colour code for each display name.
+        /// Generates a unique 3 byte colour code for each display name.
         /// </summary>
         public string Colour
         {
             get
             {
                 // TODO This might be better off being client side.
-                var colourNumber = ((uint)DisplayName.GetHashCode()) % 16777216; // Range of #000000 > #FFFFFF (16^6)
+                var displayName = string.Format("{0} {1}", FirstName, Surname);
+                var colourNumber = ((uint)(displayName.GetHashCode())) % 16777216; // Range of #000000 > #FFFFFF (16^6)
                 var colourBytes = BitConverter.GetBytes(colourNumber).Take(3).ToArray(); // Remove empty byte
                 return "#" + BitConverter.ToString(colourBytes.ToArray()).Replace("-", string.Empty);
             }
@@ -133,11 +114,4 @@ namespace CustomerSite.Server.Models
         {
         }
     }
-
-    #region EXCEPTIONS
-    public class InvalidDateException : Exception
-    {
-
-    }
-    #endregion
 }

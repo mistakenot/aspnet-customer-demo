@@ -4,11 +4,14 @@
 }
 
 @Scripts.Render("~/bundles/angularjs")
+@Scripts.Render("~/bundles/momentjs")
+@Scripts.Render("~/bundles/customerapp")
 
 <div class="row">
     <div ng-app="CustomerListApp" ng-controller="CustomerListAppController" ng-init="Get()">
         <div class="col-md-4">
             <h3 id="formLabel">{{ FormMode }} Customer</h3>
+            <p>Fill in this form to create or update a customer.</p>
             <form role="form" ng-submit="Submit()" id="form">
                 <div class="form-group">
                     <label for="FirstName">First Name:</label>
@@ -33,7 +36,7 @@
         </div>
         <div class="col-md-8">
             <h3>Existing Customers</h3>
-            <p>Click on a row to edit the customer data</p>
+            <p>Click on a row to edit the customer data.</p>
             <table>
                 <tr>
                     <th>Display Name</th>
@@ -41,11 +44,11 @@
                     <th>Date of Birth</th>
                     <th>Age</th>
                 </tr>
-                <tr ng-repeat="c in Customers" bgcolor="{{c.Colour}}" ng-click="SetupForEdit(c)">
-                    <td>{{ c.DisplayName }}</td>
+                <tr ng-repeat="c in Customers" bgcolor="{{ c.Colour }}" ng-click="SetupForEdit(c)">
+                    <td>{{ c.FirstName }} {{ c.Surname }}</td>
                     <td>{{ c.Telephone }}</td>
-                    <td>{{ c.DateOfBirth }}</td>
-                    <td>{{ c.Age }}</td>
+                    <td>{{ c.YearOfBirth() }}</td>
+                    <td>{{ c.Age() }}</td>
                 </tr>
             </table>
         </div>
@@ -53,7 +56,6 @@
 </div>
 
 @section scripts{
-    <script src="@Url.Content("~/Scripts/CustomerListApp.js")"></script>
     <script>
         Initilise("@Url.Action("Index", "Customers")");
     </script>
