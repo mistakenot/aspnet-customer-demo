@@ -37,8 +37,8 @@ namespace CustomerSite.Server.Tests.Controllers
             var all = await controller.Get();
             var retrieved = all.Last();
 
-            Assert.AreEqual(customer.DisplayName, retrieved.DisplayName);
-            Assert.AreEqual(customer.Age, retrieved.Age);
+            Assert.AreEqual(customer.FirstName, retrieved.FirstName);
+            Assert.AreEqual(customer.DateOfBirth, retrieved.DateOfBirth);
             Assert.AreEqual(customer.Colour, retrieved.Colour);
             Assert.AreEqual(customer.Telephone, retrieved.Telephone);
         }

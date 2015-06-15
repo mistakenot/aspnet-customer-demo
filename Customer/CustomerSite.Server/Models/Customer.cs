@@ -10,7 +10,6 @@ namespace CustomerSite.Server.Models
     {
         #region PRIVATE VARS
         // Recommend to change this to your desired phone regex pattern.
-        //private const string PHONE_REGEX = @"^[\d\s]+$";
         private const string PHONE_REGEX = @"\d";
 
         private string _firstName;
@@ -36,7 +35,7 @@ namespace CustomerSite.Server.Models
             {
                 if (string.IsNullOrEmpty(value))
                     throw new ArgumentNullException("FirstName");
-
+                
                 _firstName = value;
             }
         }

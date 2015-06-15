@@ -38,7 +38,7 @@ namespace CustomerSite.Server.Models
             }
         }
 
-        public async Task<Customer> CreateOne(Customer model)
+        public async Task<Customer> CreateOneAsync(Customer model)
         {
             // Don't save the model object directly - this ensures that
             //  validation code is run against each property.

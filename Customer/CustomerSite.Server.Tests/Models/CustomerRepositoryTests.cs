@@ -23,9 +23,10 @@ namespace CustomerSite.Server.Tests.Models
         {
             var customer = CreateNew();
 
-            var created = await repo.CreateOne(customer);
+            var created = await repo.CreateOneAsync(customer);
 
-            Assert.AreEqual(customer.DisplayName, created.DisplayName);
+            Assert.AreEqual(customer.FirstName, created.FirstName);
+            Assert.AreEqual(customer.Surname, created.Surname);
             Assert.AreEqual(customer.DateOfBirth, created.DateOfBirth);
             Assert.AreEqual(customer.Telephone, created.Telephone);
         }
@@ -35,13 +36,14 @@ namespace CustomerSite.Server.Tests.Models
         {
             var customer = CreateNew();
 
-            var created = await repo.CreateOne(customer);
+            var created = await repo.CreateOneAsync(customer);
 
             created.FirstName = "Douglas";
 
             var updated = await repo.UpdateOneAsync(created);
 
-            Assert.AreEqual(updated.DisplayName, created.DisplayName);
+            Assert.AreEqual(updated.FirstName, created.FirstName);
+            Assert.AreEqual(updated.Surname, created.Surname);
             Assert.AreEqual(updated.DateOfBirth, created.DateOfBirth);
             Assert.AreEqual(updated.Telephone, created.Telephone);
         }

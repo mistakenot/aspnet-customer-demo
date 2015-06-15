@@ -29,6 +29,6 @@ namespace CustomerSite.Server.Models
         /// </summary>
         /// <param name="model"></param>
         /// <returns>Created customer</returns>
-        Task<Customer> CreateOne(Customer model);
+        Task<Customer> CreateOneAsync(Customer model);
     }
 }
