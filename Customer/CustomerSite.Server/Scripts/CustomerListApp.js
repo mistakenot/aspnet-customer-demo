@@ -24,7 +24,7 @@
                     };
                 });
                 $scope.Customers = result;
-            });
+            }).error($scope.OnFormError);
         };
 
         $scope.Form = {};
@@ -45,6 +45,7 @@
         $scope.OnFormSuccess = function () {
             $scope.FormReset();
             $scope.Message = "Successful";
+            $scope.MessageColour = "green";
         }
 
         $scope.OnFormError = function () {

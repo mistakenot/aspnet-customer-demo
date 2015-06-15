@@ -20,14 +20,14 @@ namespace CustomerSite.Server.Models
         /// <summary>
         /// Asynchronously updates customer information 
         /// </summary>
-        /// <param name="model"></param>
+        /// <param name="model">Mode to update</param>
         /// <returns>Updated customer</returns>
         Task<Customer> UpdateOneAsync(Customer model);
 
         /// <summary>
         /// Asynchronously creates a new customer
         /// </summary>
-        /// <param name="model"></param>
+        /// <param name="model">Mode to create</param>
         /// <returns>Created customer</returns>
         Task<Customer> CreateOneAsync(Customer model);
     }
