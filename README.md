@@ -5,9 +5,9 @@ Using a design pattern and technology of your own choosing, develop a web applic
 
 1. Create, edit and view information related to a ‘Customer’ including their:
 
-- First Name;
+- First Name
 - Surname
-- Telephone 
+- Telephone
 - Date of birth
 
 2. Display a table of all customers with the following fields:
